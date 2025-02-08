@@ -1,0 +1,157 @@
+*{
+  font-family: inter;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+ul {
+  list-style-type: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  color: white;
+  padding: 0 240px;
+  background-color: #4B565E;
+}
+.header-left{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-nav{
+  display: flex;
+}
+
+.header-nav-item{
+  margin-right: 24px;
+
+}
+.header-nav-item a{
+  color: white;
+  text-decoration:none
+}
+.header-logo{
+  margin-right:20px;
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+
+}
+.header-right-logo{
+  margin-right:40px;
+}
+
+.header-second{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 240px;
+  background-color: #F0BA4E;
+  justify-content: space-between;
+
+}
+.catalog{
+  padding-right: 24px;
+}
+.header-second-nav-item a{
+  color: black;
+  text-decoration:none;
+  padding-right: 24px;
+  font-size: 14px;
+  align-items: center;
+
+}
+.header-second-nav{
+  display: flex;
+  align-items: center;
+  padding: 0 240px;
+
+}
+.header-second-right{
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+
+}
+.map{
+  padding-left: 24px;
+}
+
+
+.item-cards__pagination{
+  display: flex;
+  justify-content: end;
+}
+.item-cards__pagination-items{
+  color: #3c3c3b;
+  font-family: inter;
+}
+.item-cards__pagination-items:first-child{
+  color: #F0BA4E;
+  font-weight: 600;
+}
+.content-container{
+  max-width: 920px;
+  margin: 0 auto;
+}
+.item-cards__grid{
+  display: flex;
+}
+.item-cards__grid-left{
+  height: 418px;
+  width: 421px;
+  max-height: 418px;
+  max-width: 421px;
+  background-image:url(/assets/image-19.png);
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-position-x:left ;
+  background-position-y:bottom;
+  margin-bottom: 500px;
+  margin-right: 20px;
+  box-sizing: border-box ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.item-cards__grid-left-text{
+  font-size: 28px;
+  font-family: inter;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.item-cards__grid-action{
+  align-self: end;
+  display: flex;
+  align-items: center;
+}
+.item-cards__grid-action-link{
+  padding-left: 10px;
+}
+.item-cards__grid-right{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  gap:20px
+}
+.item-cards__grid-right-block{
+  width: 280px;
+  height: 200px;
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+
+
+}
