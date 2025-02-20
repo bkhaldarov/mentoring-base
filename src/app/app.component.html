@@ -1,33 +1,33 @@
 <div class="header">
   <div class="header-left">
     <div class="header-logo">
-      <img src="assets\Frame.svg" alt="logo">
+      <img src="assets\logo-ege.svg" alt="logo">
     </div>
     <nav class="header-nav">
-      <div class="header-nav-item"><a href="#">{{header}}</a></div>
-      <div class="header-nav-item"><a href="#">{{aboutCompany}}</a></div>
-      <div class="header-nav-item" *ngIf="isShowCatalog"><a href="#">{{header3}}</a></div>
+      <a class="header-nav-item" href="#">{{header}}</a>
+      <a class="header-nav-item" href="#">{{aboutCompany}}</a>
+      <a class="header-nav-item" *ngIf="isShowCatalog" href="#">{{header3}}</a>
     </nav>
     <button (click)="isShowCatalog=!isShowCatalog">скрыть/паказать каталог</button>
     <button (click)="changeMenuText()">изминить текст</button>
   </div>
   <div class="header-right">
     <div class="header-right-logo">
-    <img class="header-right-logo-phone" src="assets\Frame-4.svg" alt="logo-phone">
+    <img class="header-right-logo-phone" src="assets\phone-logo.svg" alt="logo-phone">
     </div>
     <div class="header-right-logo">
-      <img src="assets\heart-1.svg" alt="logo-heart">
+      <img src="assets\heart-logo.svg" alt="logo-heart">
     </div>
     <button class="header-right-basket">
-      <img src="assets\Frame-3.svg" alt="logo-basket" >
+      <img src="assets\basket.svg" alt="logo-basket" >
     </button>
     </div>
 </div>
+
 <div class="header-second">
   <nav class="header-nav">
-    <div class="header-second-nav-item"><a href="#"><img class="menu" src="assets\light.svg" alt="icon-menu"></a></div>
+    <div class="header-second-nav-item"><a href="#"><img class="menu" src="assets\icon-menu-burger.svg" alt="icon-menu"></a></div>
     <div class="header-second-nav-item" *ngFor="let item of menuItems"><a href="#">{{item}}</a></div>
-
     <!-- <div class="header-second-nav-item"><a href="#">Каталог</a></div>
     <div class="header-second-nav-item"><a href="#">Стройматериалы</a></div>
     <div class="header-second-nav-item"><a href="#">Инструменты</a></div>
@@ -39,14 +39,17 @@
       <input type="search" placeholder="Поиск, например Круг зачистной">
     </form>
     <div class="map">
-      <button class="location" type="menu"><img src="assets\location.svg" alt="location"></button>
+      <button class="location" type="menu"><img src="assets\location-logo.svg" alt="location-logo"></button>
     </div>
   </div>
 </div>
 <button (click)="isShowImg=!isShowImg">скрыть/паказать картинку</button>
 <div>
-  <img *ngIf="isShowImg" src="\assets\Rectangle 5.png" alt="bakcground-img-large" style="width: 100%;">
+  <img *ngIf="isShowImg" src="\assets\bakcground-img-man.png" alt="bakcground-img-large" style="width: 100%;">
 </div>
+
+<router-outlet></router-outlet>
+
 <div class="content-container">
 <div class="item-cards">
   <div class="item-cards__pagination">
@@ -57,7 +60,6 @@
     <button class="item-cards__pagination-items">4</button>
     <button class="item-cards__pagination-items">5</button> -->
   </div>
-
      <div class="item-cards__grid">
      <div class="item-cards__grid-left">
       <div class="item-cards__grid-left-text">
@@ -66,29 +68,30 @@
       <div class="item-cards__grid-action">
         <span>Перейти в каталог</span>
         <a class="item-cards__grid-action-link">
-          <img src="\assets\Frame-20.png" alt="">
+          <img src="\assets\arrow.png" alt="стрелка">
         </a>
       </div>
      </div>
      <div class="item-cards__grid-right">
       <div class="item-cards__grid-right-block">
         <span>Эмали</span>
-        <img src="\assets\image-14.png" alt="Эмал">
+        <img src="\assets\enamel.png" alt="Enamel">
       </div>
       <div class="item-cards__grid-right-block">
         <span>Лакокрасочные материалы</span>
-        <img src="\assets\image-17.png" alt="Лакокрасочные материалы">
+        <img src="\assets\varnish-materials.png" alt="varnish-materials">
       </div>
       <div class="item-cards__grid-right-block">
         <span>Пены, клеи и герметики</span>
-        <img src="\assets\image-18.png" alt="Пены, клеи и герметики" height="180">
+        <img src="\assets\sealants.png" alt="Пены, клеи и герметики" height="180">
       </div>
       <div class="item-cards__grid-right-block">
         <span>Розетки и выключатели</span>
-        <img src="\assets\image-15.png" alt="Розетки и выключатели">
+        <img src="\assets\sockets.png" alt="Розетки и выключатели">
       </div>
      </div>
      </div>
   </div>
 </div>
+
 
