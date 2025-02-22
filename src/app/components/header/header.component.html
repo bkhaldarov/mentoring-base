@@ -1,0 +1,51 @@
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">
+      <img src="assets\logo-ege.svg" alt="logo">
+    </div>
+    <nav class="header-nav">
+      <a class="header-nav-item" href="#" routerLink="/">{{header}}</a>
+      <a class="header-nav-item" href="#" routerLink="user">{{userButton}}</a>
+      <a class="header-nav-item" href="#">{{aboutCompany}}</a>
+      <a class="header-nav-item" *ngIf="isShowCatalog" href="#">{{header3}}</a>
+    </nav>
+    <button (click)="isShowCatalog=!isShowCatalog">скрыть/паказать каталог</button>
+    <button (click)="changeMenuText()">изминить текст</button>
+  </div>
+  <div class="header-right">
+    <div class="header-right-logo">
+    <img class="header-right-logo-phone" src="assets\phone-logo.svg" alt="logo-phone">
+    </div>
+    <div class="header-right-logo">
+      <img src="assets\heart-logo.svg" alt="logo-heart">
+    </div>
+    <button class="header-right-basket">
+      <img src="assets\basket.svg" alt="logo-basket" >
+    </button>
+    </div>
+</div>
+
+<div class="header-second">
+  <nav class="header-nav">
+    <div class="header-second-nav-item"><a href="#"><img class="menu" src="assets\icon-menu-burger.svg" alt="icon-menu"></a></div>
+    <div class="header-second-nav-item" *ngFor="let item of menuItems"><a href="#">{{item}}</a></div>
+    <!-- <div class="header-second-nav-item"><a href="#">Каталог</a></div>
+    <div class="header-second-nav-item"><a href="#">Стройматериалы</a></div>
+    <div class="header-second-nav-item"><a href="#">Инструменты</a></div>
+    <div class="header-second-nav-item"><a href="#">Электрика</a></div>
+    <div class="header-second-nav-item"><a href="#">Интерьер и одежда</a></div> -->
+  </nav>
+  <div class="header-second-right">
+    <form>
+      <input type="search" placeholder="Поиск, например Круг зачистной">
+    </form>
+    <div class="map">
+      <button class="location" type="menu"><img src="assets\location-logo.svg" alt="location-logo"></button>
+    </div>
+  </div>
+</div>
+<button (click)="isShowImg=!isShowImg">скрыть/паказать картинку</button>
+<div>
+  <img *ngIf="isShowImg" src="\assets\bakcground-img-man.png" alt="bakcground-img-large" style="width: 100%;">
+</div>
+
