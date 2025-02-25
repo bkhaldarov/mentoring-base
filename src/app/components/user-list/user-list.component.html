@@ -1,0 +1,12 @@
+<app-header></app-header>
+<h3 class="users-lists">Component Users list</h3>
+<div style="display: flex; width: 100%; flex-wrap: wrap;">
+  <div *ngFor="let user of users" class="card">
+    <p>{{ user.name }}</p>
+    <p>{{ user.email }}</p>
+    <p>{{ user.website }}</p>
+    <p>{{ user.company.name }}</p>
+    <button (click)="deleteUser(user.id)" class="delete-button">удалить user</button>
+  </div>
+</div>
+

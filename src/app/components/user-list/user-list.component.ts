@@ -28,21 +28,21 @@ export interface User {
 }
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-user-list',
   standalone: true,
   imports: [ NgFor, HeaderComponent],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  templateUrl: './user-list.component.html',
+  styleUrl: './user-list.component.scss'
 })
 
-export class UserComponent {
+export class UserListComponent {
   private readonly apiService = inject(HttpClient);
   users: User[] = [];
   constructor() {
     this.apiService.get<User[]>('https://jsonplaceholder.typicode.com/users')
       .subscribe((users: User[]) => {
         this.users = users;
-        console.log('users:', this.users);
+        // console.log('users:', this.users);
       }, (error) => {
         console.error('Ошибка при загрузке пользователей:', error);
       });
