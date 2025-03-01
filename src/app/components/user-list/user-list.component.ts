@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { NgFor, NgIf } from "@angular/common";
 import { HeaderComponent } from '../header/header.component';
 import { HttpClient } from "@angular/common/http";
+import { UsersApiService } from '../../user-api.service';
 
 export interface User {
   id: number;
@@ -30,13 +31,13 @@ export interface User {
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [ NgFor, HeaderComponent],
+  imports: [ NgFor,],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss'
 })
 
 export class UserListComponent {
-  private readonly apiService = inject(HttpClient);
+  readonly apiService = inject(HttpClient);
   users: User[] = [];
   constructor() {
     this.apiService.get<User[]>('https://jsonplaceholder.typicode.com/users')
@@ -52,3 +53,22 @@ export class UserListComponent {
     this.users = this.users.filter(user => user.id !== id);
   }
 }
+
+
+//код из видео
+// export class UserListComponent {
+//   readonly usersApiService = inject(UsersApiService);
+//   users: User[] = [];
+
+//   constructor() {
+//     this.usersApiService.getUsers()
+//       .subscribe((response: any) => {
+//         this.users = response;
+//         // console.log('users:', this.users);
+//       });
+//   }
+
+  // deleteUser(id: number) {
+  //   this.users = this.users.filter(user => user.id !== id);
+  // }
+// }
