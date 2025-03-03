@@ -29,8 +29,8 @@ export class HeaderComponent {
   isShowImg=false;
 
   readonly header = 'Главная';
-  readonly userButton='Пользователи'
-  readonly todosButton='Todos'
+  readonly userButton = 'Пользователи'
+  readonly todosButton = 'Todos'
   readonly header2 = 'О компании';
   readonly header3 = 'Каталог';
 

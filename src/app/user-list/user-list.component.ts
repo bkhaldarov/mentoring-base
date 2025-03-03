@@ -29,5 +29,5 @@ export class UserListComponent {
     this.users = this.users.filter(user => user.id !== id);
   }
 }
-export { User };
+
 
