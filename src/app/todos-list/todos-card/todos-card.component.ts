@@ -1,5 +1,6 @@
 import { NgFor } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Todo } from "../../models/todo.model";
 
 
 @Component({
@@ -11,12 +12,12 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 export class TodoCardComponent {
   @Input()
-     todo: any;
+     todo!: Todo;
 
   @Output()
-  deleteTodo = new EventEmitter();
+  deleteTodo = new EventEmitter<number>();
 
-  onDeleteTodo(todoId: any){
-    this.deleteTodo.emit(todoId);
+  onDeleteTodo(){
+    this.deleteTodo.emit(this.todo.id);
   }
 }

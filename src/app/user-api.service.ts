@@ -1,11 +1,12 @@
-import { Injectable, Inject, inject } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { User } from "./models/user.model";
 
-@Injectable({ providedIn: "root"})
+@Injectable({ providedIn: "root" })
 export class UsersApiService {
-   readonly apiService=inject(HttpClient)
+  readonly apiService = inject(HttpClient);
 
   getUsers() {
-    return this.apiService.get("https://jsonplaceholder.typicode.com/users");
+    return this.apiService.get<User[]>("https://jsonplaceholder.typicode.com/users");
   }
 }
