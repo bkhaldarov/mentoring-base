@@ -1,6 +1,6 @@
 <h3 class="todo-lists">Component Todo list</h3>
 <div class="todos-lists-card">
-  <div *ngFor="let todo of todos">
+  <div *ngFor="let todo of todosService.todoSubject$ | async">
   <app-todo-card [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-todo-card>
   </div>
 </div>
