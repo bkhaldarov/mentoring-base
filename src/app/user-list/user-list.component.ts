@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [NgFor, UserCardComponent, AsyncPipe],
+  imports: [NgFor,NgIf, UserCardComponent, AsyncPipe],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush

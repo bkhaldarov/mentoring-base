@@ -8,7 +8,7 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todos-list',
   standalone: true,
-  imports: [NgFor, TodoCardComponent, AsyncPipe],
+  imports: [NgFor, NgIf, TodoCardComponent, AsyncPipe],
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
