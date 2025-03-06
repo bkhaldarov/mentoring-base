@@ -2,32 +2,32 @@ import { Injectable } from "@angular/core";
 import { User } from "./models/user.model";
 import { BehaviorSubject } from "rxjs";
 
-@Injectable({providedIn: 'root'})
-export class UserService{
-  private user = new BehaviorSubject<User[]>([]);
-  user$ = this.user.asObservable();
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  private userSubject$ = new BehaviorSubject<User[]>([]);
+  users$ = this.userSubject$.asObservable();
 
-  setUsers(users: User[]){
-    this.user.next(users);
+  setUsers(users: User[]) {
+    this.userSubject$.next(users);
   }
 
   editUser(editUser: User) {
-    this.user.next(
-      this.user.value.map(user =>
+    this.userSubject$.next(
+      this.userSubject$.value.map(user =>
         user.id === editUser.id ? editUser : user
       )
     );
   }
 
-  createUser(user: User){
-    this.user.next(
-      [...this.user.value, user]
-    )
+  createUser(user: User) {
+    this.userSubject$.next(
+      [...this.userSubject$.value, user]
+    );
   }
 
   deleteUser(id: number) {
-    this.user.next(
-      this.user.value.filter(user => user.id !== id)
-    )
+    this.userSubject$.next(
+      this.userSubject$.value.filter(user => user.id !== id)
+    );
   }
 }
