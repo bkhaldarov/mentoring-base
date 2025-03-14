@@ -29,16 +29,18 @@ export class UserListComponent {
   deleteUser(id: number) {
     this.usersService.deleteUser(id);
   }
+
   createUser(formData: User){
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formData.name,
       email: formData.email,
       website:formData.website,
-      company:{
+      company: {
         name: formData.name,
-      },
-    })
+        },
+      }
+    )
   }
 }
 

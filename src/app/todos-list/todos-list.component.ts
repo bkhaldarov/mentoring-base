@@ -29,11 +29,12 @@ export class TodosListComponent {
   createTodo(formData: Todo){
     this.todosService.createTodo({
       userId: formData.userId,
-      id: formData.id,
+      id: new Date().getTime(),
       title: formData.title,
       completed: formData.completed,
-    })
-  }
+    }
+  )
+}
 
   deleteTodo(id: number) {
     this.todosService.deleteTodo(id);
