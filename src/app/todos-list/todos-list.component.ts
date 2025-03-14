@@ -4,11 +4,12 @@ import { TodoCardComponent } from "./todos-card/todos-card.component";
 import { TodosApiService } from '../todos-api.service';
 import { Todo } from "../models/todo.model";
 import { TodoService } from '../todo.service';
+import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form";
 
 @Component({
   selector: 'app-todos-list',
   standalone: true,
-  imports: [NgFor, NgIf, TodoCardComponent, AsyncPipe],
+  imports: [NgFor, TodoCardComponent, AsyncPipe, CreateTodoFormComponent],
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
@@ -23,6 +24,15 @@ export class TodosListComponent {
       (response: Todo[]) => {
         this.todosService.setTodos(response);
       });
+  }
+
+  createTodo(formData: Todo){
+    this.todosService.createTodo({
+      userId: formData.userId,
+      id: formData.id,
+      title: formData.title,
+      completed: formData.completed,
+    })
   }
 
   deleteTodo(id: number) {

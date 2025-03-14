@@ -20,9 +20,16 @@ export class TodoService{
   }
 
   createTodo(todo: Todo){
-    this.todoSubject$.next(
-      [...this.todoSubject$.value, todo]
-    )
+      const todoExisting = this.todoSubject$.value.find(
+        (currentElement) => currentElement.title === todo.title);
+        console.log(todoExisting);
+
+        if (todoExisting !== undefined){
+        alert('ТАКОЙ Title УЖЕ ЗАРЕГИСТРИРОВАН');
+        } else {
+        this.todoSubject$.next([...this.todoSubject$.value, todo]);
+        alert('Новый пользователь добавлен');
+        }
   }
 
   deleteTodo(id: number) {

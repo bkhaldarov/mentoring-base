@@ -4,11 +4,12 @@ import { UsersApiService } from '../user-api.service';
 import { UserCardComponent } from "./user-card/user-card.component";
 import { User } from "../models/user.model";
 import { UserService } from '../user.service';
+import { CreateUserFormComponent } from '../create-user-form/create-user-form';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [NgFor,NgIf, UserCardComponent, AsyncPipe],
+  imports: [NgFor, UserCardComponent,CreateUserFormComponent, AsyncPipe],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
@@ -27,6 +28,17 @@ export class UserListComponent {
 
   deleteUser(id: number) {
     this.usersService.deleteUser(id);
+  }
+  createUser(formData: User){
+    this.usersService.createUser({
+      id: new Date().getTime(),
+      name: formData.name,
+      email: formData.email,
+      website:formData.website,
+      company:{
+        name: formData.name,
+      },
+    })
   }
 }
 
