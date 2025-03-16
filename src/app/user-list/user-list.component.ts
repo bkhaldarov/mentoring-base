@@ -35,8 +35,8 @@ export class UserListComponent {
       id: new Date().getTime(),
       name: formData.name,
       email: formData.email,
-      website:formData.website,
-      company: {
+      website: formData.website,
+      company:{
         name: formData.name,
         },
       }

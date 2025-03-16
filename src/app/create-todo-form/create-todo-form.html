@@ -1,36 +1,34 @@
-
 <div class="form-card">
   <form class="form-card_style" [formGroup]="form" (ngSubmit)="submitForm()">
-
     <div class="form-container">
       <h1>CREATE Todo FORM </h1>
-      <label for="title">Title:</label>
-      <input type="text" id="title" class="form-input" formControlName="title" placeholder="ТЕКСТ ЗАДАЧИ:" />
-      <div *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)"
-        class="alert">
-        <div *ngIf="form.controls['title'].errors">Title введено неправильно</div>
-      </div>
 
-      <label for="userId">User ID:</label>
-      <input type="number" id="userId" class="form-input" formControlName="userId" placeholder="АВТОР ЗАДАЧИ:" />
-      <div *ngIf="form.controls['userId'].invalid && (form.controls['userId'].dirty || form.controls['userId'].touched)"
-        class="alert">
-        <div *ngIf="form.controls['userId'].errors">User ID введено неправильно</div>
-      </div>
+      <mat-form-field>
+        <mat-label>user id</mat-label>
+        <input matInput formControlName="userId">
+        <mat-error *ngIf="form.controls['userId'].invalid && (form.controls['userId'].dirty || form.controls['userId'].touched)">
+          id введено неправильно
+        </mat-error>
+      </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Введите заголовок">
+        <mat-error *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)">
+          Title введено неправильно
+        </mat-error>
+      </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Задача завершена?</mat-label>
+        <input matInput formControlName="completed" placeholder="Да/Нет">
+        <mat-error>Некорректное значение</mat-error>
+      </mat-form-field>
 
-      <div class="checkbox-group">
-        <label for="completed">Completed:</label>
-        <input type="checkbox" id="completed" formControlName="completed" />
-      </div>
-      <div *ngIf="form.controls['completed'].invalid && (form.controls['completed'].dirty || form.controls['completed'].touched)"
-        class="alert">
-        <div *ngIf="form.controls['completed'].errors">Completed введено неправильно</div>
-      </div>
-
-      <button class="submit-btn" type="submit" [disabled]="form.invalid">Create User</button>
+      <button mat-flat-button [disabled]="form.invalid">
+          Add Todo
+         <mat-icon>add</mat-icon>
+      </button>
     </div>
-
   </form>
 </div>
