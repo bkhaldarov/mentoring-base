@@ -21,3 +21,13 @@ export interface User {
     bs?: string;
   };
 }
+
+export interface IcreateUser{
+  id: number;
+  name: string;
+  email: string;
+  website: string;
+  company: {
+    name: string;
+  };
+}

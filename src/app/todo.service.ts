@@ -22,7 +22,6 @@ export class TodoService{
   createTodo(todo: Todo){
       const todoExisting = this.todoSubject$.value.find(
         (currentElement) => currentElement.title === todo.title);
-        console.log(todoExisting);
 
         if (todoExisting !== undefined){
         alert('ТАКОЙ Title УЖЕ ЗАРЕГИСТРИРОВАН');

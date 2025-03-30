@@ -22,16 +22,16 @@
 
       <mat-form-field>
         <mat-label>Website</mat-label>
-        <input matInput formControlName="website"> <!-- ✅ Добавлен matInput -->
+        <input matInput formControlName="website">
         <mat-error *ngIf="form.controls['website'].invalid && (form.controls['website'].dirty || form.controls['website'].touched)">
           Website введён неправильно
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field formGroupName="company">
         <mat-label>Company Name</mat-label>
-        <input matInput formControlName="companyName">
-        <mat-error *ngIf="form.controls['companyName'].invalid && (form.controls['companyName'].dirty || form.controls['companyName'].touched)">
+        <input matInput formControlName="name">
+        <mat-error *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
           Название компании введено неправильно
         </mat-error>
       </mat-form-field>

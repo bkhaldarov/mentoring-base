@@ -1,0 +1,42 @@
+<div class="card">
+  <form class="form-container" [formGroup]="form" >
+    <mat-form-field>
+      <mat-label>name user</mat-label>
+      <input matInput formControlName="name">
+      <mat-error>Имя введено неправильно</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex.pat@example.com">
+      <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)">
+        <mat-error *ngIf="form.controls['email'].hasError('required')">
+          Email обязателен
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('email')">
+          Email введён неправильно
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Website</mat-label>
+      <input matInput formControlName="website">
+      <mat-error *ngIf="form.controls['website'].invalid && (form.controls['website'].dirty || form.controls['website'].touched)">
+        Website введён неправильно
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field formGroupName="company">
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
+        Название компании введено неправильно
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button class="add-user-btn" [disabled]="form.invalid"[mat-dialog-close]="userWithUpdateFields">
+        Pедактироавт
+       <mat-icon>add</mat-icon>
+    </button>
+  </form>

@@ -2,7 +2,7 @@
 <h3 class="users-lists">Component Users list</h3>
 <div class="users-lists-card">
     <div *ngFor="let user of usersService.users$ |async "  class="card">
-      <app-user-card [user]="user" (deleteUser)="deleteUser($event)"></app-user-card>
+      <app-user-card [user]="user" (deleteUser)="deleteUser($event)" (editUser)="editUser($event)"></app-user-card>
     </div>
   </div>
 

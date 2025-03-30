@@ -16,6 +16,7 @@ import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form";
 })
 
 export class TodosListComponent {
+
   readonly todosApiService = inject(TodosApiService);
   readonly todosService = inject(TodoService);
 
@@ -35,6 +36,9 @@ export class TodosListComponent {
     }
   )
 }
+editTodo(todo: Todo){
+      this.todosService.editTodo(todo)
+    }
 
   deleteTodo(id: number) {
     this.todosService.deleteTodo(id);
