@@ -15,6 +15,7 @@ export interface User {
   };
   phone?: string;
   website: string;
+  phoneNumber:string,
   company: {
     name: string;
     catchPhrase?: string;
@@ -27,6 +28,7 @@ export interface IcreateUser{
   name: string;
   email: string;
   website: string;
+  phoneNumber:string,
   company: {
     name: string;
   };

@@ -23,6 +23,7 @@ export class CreateUserFormComponent{
     name: new FormControl('',[Validators.required, Validators.minLength(2)]),
     email: new FormControl('',[Validators.required, Validators.email]),
     website: new FormControl('',[Validators.required, Validators.minLength(3) ]),
+    phoneNumber: new FormControl('',[Validators.required, Validators.minLength(5)]),
     company: new FormGroup({
       name: new FormControl('',[Validators.required])
     })

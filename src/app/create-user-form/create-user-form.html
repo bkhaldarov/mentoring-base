@@ -28,6 +28,14 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>phoneNumber</mat-label>
+        <input matInput formControlName="phoneNumber">
+        <mat-error *ngIf="form.controls['phoneNumber'].invalid && (form.controls['phoneNumber'].dirty || form.controls['phoneNumber'].touched)">
+          phoneNumber введён неправильно
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field formGroupName="company">
         <mat-label>Company Name</mat-label>
         <input matInput formControlName="name">

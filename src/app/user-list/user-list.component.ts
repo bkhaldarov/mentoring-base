@@ -39,6 +39,7 @@ export class UserListComponent {
       name: formData.name,
       email: formData.email,
       website: formData.website,
+      phoneNumber: formData.phoneNumber,
       company: {
         name: formData.company.name,
         },

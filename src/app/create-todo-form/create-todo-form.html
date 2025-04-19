@@ -6,7 +6,7 @@
       <mat-form-field>
         <mat-label>user id</mat-label>
         <input matInput formControlName="userId">
-        <mat-error *ngIf="form.controls['userId'].invalid && (form.controls['userId'].dirty || form.controls['userId'].touched)">
+        <mat-error>
           id введено неправильно
         </mat-error>
       </mat-form-field>
@@ -14,7 +14,7 @@
       <mat-form-field>
         <mat-label>Title</mat-label>
         <input matInput formControlName="title" placeholder="Введите заголовок">
-        <mat-error *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)">
+        <mat-error>
           Title введено неправильно
         </mat-error>
       </mat-form-field>

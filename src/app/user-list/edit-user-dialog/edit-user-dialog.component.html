@@ -10,10 +10,10 @@
       <mat-label>Email</mat-label>
       <input type="email" matInput formControlName="email" placeholder="Ex.pat@example.com">
       <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)">
-        <mat-error *ngIf="form.controls['email'].hasError('required')">
+        <mat-error>
           Email обязателен
         </mat-error>
-        <mat-error *ngIf="form.controls['email'].hasError('email')">
+        <mat-error >
           Email введён неправильно
         </mat-error>
       </div>
@@ -22,15 +22,23 @@
     <mat-form-field>
       <mat-label>Website</mat-label>
       <input matInput formControlName="website">
-      <mat-error *ngIf="form.controls['website'].invalid && (form.controls['website'].dirty || form.controls['website'].touched)">
+      <mat-error>
         Website введён неправильно
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>phoneNumber</mat-label>
+      <input matInput formControlName="phoneNumber">
+      <mat-error>
+        phoneNumber введён неправильно
       </mat-error>
     </mat-form-field>
 
     <mat-form-field formGroupName="company">
       <mat-label>Company Name</mat-label>
       <input matInput formControlName="name">
-      <mat-error *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
+      <mat-error>
         Название компании введено неправильно
       </mat-error>
     </mat-form-field>
