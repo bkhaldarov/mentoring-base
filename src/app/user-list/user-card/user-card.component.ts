@@ -5,13 +5,14 @@ import { EditUserDialogComponent } from "../edit-user-dialog/edit-user-dialog.co
 import { CustumUpperCasePipe } from "../../pipes/upper-case.pipe";
 import { CommonModule } from "@angular/common";
 import { RemoveDashesPipe } from "../../pipes/removeDashes.pipe";
+import { ShortTextPipe } from "../../pipes/short-text.pipe";
 
 @Component({
   selector: 'app-user-card',
   standalone: true,
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
-  imports: [CustumUpperCasePipe,CommonModule, RemoveDashesPipe]
+  imports: [CustumUpperCasePipe,CommonModule, RemoveDashesPipe, ShortTextPipe]
 })
 export class UserCardComponent {
   today: Date = new Date();

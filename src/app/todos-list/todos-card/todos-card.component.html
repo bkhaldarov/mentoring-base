@@ -6,7 +6,6 @@
   <div>{{ todo.userId }}</div>
   <p>ЗАДАЧА ЗАВЕРШЕНА:</p>
   <div>{{todo.completed ? 'ДА' : 'НЕТ'}}</div>
-  <div>Короткий формат даты: {{ today | date:'short' }}</div>
   <button (click)="onDeleteTodo(todo.id)" class="delete-button">УДАЛИТЬ ЗАДАЧУ</button>
   <button (click)="openDialog()" class="delete-button">редактироавт пользователя</button>
 </div>
