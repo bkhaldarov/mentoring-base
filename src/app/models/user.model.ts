@@ -13,9 +13,8 @@ export interface User {
       lng: string;
     };
   };
-  phone?: string;
+  phone: string;
   website: string;
-  phoneNumber:string,
   company: {
     name: string;
     catchPhrase?: string;
@@ -28,7 +27,7 @@ export interface IcreateUser{
   name: string;
   email: string;
   website: string;
-  phoneNumber:string,
+  phone:string,
   company: {
     name: string;
   };

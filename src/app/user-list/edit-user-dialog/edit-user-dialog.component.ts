@@ -26,7 +26,7 @@ export class EditUserDialogComponent{
     name: new FormControl(this.data.user.name,[Validators.required, Validators.minLength(2)]),
     email: new FormControl(this.data.user.email,[Validators.required, Validators.email]),
     website: new FormControl(this.data.user.website,[Validators.required, Validators.minLength(3)]),
-    phoneNumber: new FormControl(this.data.user.phoneNumber, [Validators.required, Validators.minLength(5)]),
+    phone: new FormControl(this.data.user.phone, [Validators.required, Validators.minLength(5)]),
     company: new FormGroup({
       name: new  FormControl(this.data.user.company.name, [Validators.required, Validators.minLength(2)]),
     })

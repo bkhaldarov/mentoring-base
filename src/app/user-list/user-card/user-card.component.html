@@ -1,10 +1,10 @@
 <div class="user-card">
   <p class="date">{{ today | date:'medium' }}</p>
-  <p>{{ user.name | CustumUpperCase}}</p>
-  <p>{{ user.email | shorttext}}</p>
-  <p>{{ user.website | shorttext}}</p>
-  <p>{{ user.phoneNumber | removeDashes}}</p>
-  <p>{{ user.company.name | shorttext}}</p>
+  <p>{{ user.name | CustumUpperCase }}</p>
+  <p>{{ user.email | shorttext }}</p>
+  <p>{{ user.website | shorttext }}</p>
+  <p>{{ user.phone | removeDashes }}</p>
+  <p>{{ user.company.name | shorttext }}</p>
   <button (click)="onDeleteUser(user.id)" class="delete-button">Удалить пользователя</button>
   <button (click)="openDialog()" class="delete-button">редактировать пользователя</button>
 </div>

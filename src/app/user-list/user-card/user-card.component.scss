@@ -24,10 +24,8 @@
     background-color: #c82333;
   }
 }
-
-/* Добавьте стили для второй кнопки, если они отличаются */
 button:last-child {
-  background-color: #007bff; /* Пример цвета для кнопки редактирования */
+  background-color: #007bff;
 
   &:hover {
     background-color: #0056b3;
