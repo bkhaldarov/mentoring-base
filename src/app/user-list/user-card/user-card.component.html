@@ -5,6 +5,6 @@
   <p>{{ user.website | shorttext }}</p>
   <p>{{ user.phone | removeDashes }}</p>
   <p>{{ user.company.name | shorttext }}</p>
-  <button (click)="onDeleteUser(user.id)" class="delete-button">Удалить пользователя</button>
-  <button (click)="openDialog()" class="delete-button">редактировать пользователя</button>
+  <button mat-button red matTooltip="Удалить пользователя" shadow (click)="onDeleteUser(user.id)" class="delete-button">Удалить пользователя</button>
+  <button mat-button red matTooltip="редактировать пользователя" shadow (click)="openDialog()" class="delete-button">редактировать пользователя</button>
 </div>

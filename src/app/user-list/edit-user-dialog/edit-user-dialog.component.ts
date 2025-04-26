@@ -9,12 +9,13 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { ChangeDetectionStrategy } from '@angular/core';
 import { User } from "../../models/user.model";
+import { MatTooltipModule} from '@angular/material/tooltip';
 
 
 @Component({
   selector: 'edit-user-dialog',
   standalone: true,
-  imports: [ReactiveFormsModule,NgIf,MatIconModule,MatDialogClose, MatButtonModule,MatInputModule,FormsModule, MatFormFieldModule,MatDividerModule],
+  imports: [ReactiveFormsModule,NgIf,MatIconModule,MatDialogClose, MatButtonModule,MatInputModule,FormsModule, MatFormFieldModule,MatDividerModule,MatTooltipModule],
   templateUrl: './edit-user-dialog.component.html',
   styleUrl: './edit-user-dialog.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush

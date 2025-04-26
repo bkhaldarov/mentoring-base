@@ -1,5 +1,4 @@
 .user-card {
-  /* Ваши текущие стили для карточки */
   position: relative;
 }
 
@@ -10,24 +9,25 @@
   border-radius: 4px;
 }
 
+
 .delete-button {
-  background-color: #dc3545;
-  color: white;
+  background-color: #bb5f5f;
   border: none;
-  padding: 4px 10px;
+  padding: 4px 5px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 5px;
-
-  &:hover {
-    background-color: #c82333;
-  }
 }
-button:last-child {
-  background-color: #007bff;
 
-  &:hover {
-    background-color: #0056b3;
-  }
+
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

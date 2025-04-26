@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { RedDirective } from '../../directives/red.directive';
+import { GreenDirective } from '../../directives/green.directive';
 
 const newPages = [5,4,3,2,1];
 
@@ -18,7 +20,7 @@ const UpperCaseMenuItems=menuItems.map(
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ NgIf, NgFor,RouterLink],
+  imports: [ NgIf, NgFor,RouterLink,GreenDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
