@@ -1,39 +1,39 @@
-import { Injectable } from "@angular/core";
-import { User } from "./models/user.model";
-import { BehaviorSubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class UserService {
-  private userSubject$ = new BehaviorSubject<User[]>([]);
-  users$ = this.userSubject$.asObservable();
-
-  setUsers(users: User[]) {
-    this.userSubject$.next(users);
-  }
-
-  editUser(editUser: User) {
-    this.userSubject$.next(
-      this.userSubject$.value.map(user =>
-        user.id === editUser.id ? editUser : user
-      )
-    );
-  }
-
-  createUser(user: User) {
-  const userExisting = this.userSubject$.value.find(
-  (currentElement) => currentElement.email === user.email);
-
-  if (userExisting !== undefined) {
-  alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
-  } else {
-  this.userSubject$.next([...this.userSubject$.value, user]);
-  alert('Новый пользователь добавлен');
-  }
+export interface IUser {
+  name: string;
+  email: string;
+  isAdmin: boolean | null;
 }
 
-  deleteUser(id: number) {
-    this.userSubject$.next(
-      this.userSubject$.value.filter(user => user.id !== id)
-    );
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private readonly userSubjects$ = new BehaviorSubject<IUser | null>(null);
+  public readonly user$ = this.userSubjects$.asObservable();
+
+  private user: IUser = {
+    name: 'Bobur',
+    email: 'bobur@gmail.com',
+    isAdmin: null
+  };
+
+  loginAsAdmin() {
+    this.userSubjects$.next({ ...this.user, isAdmin: true });
+  }
+
+  loginAsUser() {
+    this.userSubjects$.next({ ...this.user, isAdmin: false });
+  }
+
+  get isAdmin(){
+    return this.userSubjects$.value?.isAdmin;
+  }
+
+  logOut(){
+    this.userSubjects$.next(null);
+
   }
 }

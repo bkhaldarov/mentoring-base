@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe, NgFor, NgIf } from "@angular/common";
-import { UsersApiService } from '../user-api.service';
+import { UsersApiService } from '../users-api.service';
 import { UserCardComponent } from "./user-card/user-card.component";
 import { IcreateUser, User } from "../models/user.model";
-import { UserService } from '../user.service';
+import { UserService } from '../users.service';
 import { CreateUserFormComponent } from '../create-user-form/create-user-form';
 
 @Component({

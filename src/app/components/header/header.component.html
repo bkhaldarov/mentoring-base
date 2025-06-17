@@ -7,6 +7,7 @@
       <a class="header-nav-item" href="#" routerLink="/">{{header}}</a>
       <a class="header-nav-item" href="#" routerLink="user">{{userButton}}</a>
       <a class="header-nav-item" href="#" routerLink="todos">{{todosButton}}</a>
+      <a class="header-nav-item" href="#" routerLink="admin">admin</a>
       <a class="header-nav-item" *ngIf="isShowCatalog" href="#">{{aboutCompany}}</a>
       <a class="header-nav-item" *ngIf="isShowCatalog" href="#">{{header3}}</a>
     </nav>
@@ -22,7 +23,10 @@
     </div>
     <button class="header-right-basket">
       <img green src="assets\basket.svg" alt="logo-basket" >
+
     </button>
+    <button (click)="openDialog()" class="button" *ngIf="(userService.user$ | async) ===null ">Войти</button>
+    <button (click)="logout()" class="button" *ngIf="(userService.user$ | async) !==null " >Выйти</button>
     </div>
 </div>
 

@@ -1,0 +1,20 @@
+.continer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto
+}
+
+.button {
+  width: 250px;
+}
+
+.title {
+  margin: auto;
+}

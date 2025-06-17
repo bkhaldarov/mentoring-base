@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { AsyncPipe, DatePipe, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { RedDirective } from '../../directives/red.directive';
 import { GreenDirective } from '../../directives/green.directive';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthComponent } from '../../auth/auth.component';
+import { UserService } from '../../user.service';
+import { pipe } from 'rxjs';
+
 
 const newPages = [5,4,3,2,1];
 
@@ -20,7 +25,7 @@ const UpperCaseMenuItems=menuItems.map(
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ NgIf, NgFor,RouterLink,GreenDirective],
+  imports: [ NgIf, NgFor,RouterLink,GreenDirective, AsyncPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -41,6 +46,8 @@ export class HeaderComponent {
   menuItems = UpperCaseMenuItems;
   readonly newPages = newPages;
 
+  private readonly dialog = inject(MatDialog);
+  public readonly userService = inject(UserService)
   isUpperCase=true;
 
   changeMenuText(){
@@ -50,7 +57,31 @@ export class HeaderComponent {
     this.isUpperCase =! this.isUpperCase
   }
 
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(AuthComponent, {
+       width:"400px",
+       height:"200px",
+    });
 
+    dialogRef.afterClosed().subscribe((result:String) => {
+      console.log(result);
+
+      if(result === "admin"){
+        this.userService.loginAsAdmin();
+      }else if(result === "User") {
+        this.userService.loginAsUser();
+      }else return undefined;
+    })
+  }
+
+  public logout() {
+    if(confirm('Вы точна хотите выйти?')){
+      console.log('da logout');
+      return this.userService.logOut();
+    }
+    else return false;
+
+  }
 }
 
 
