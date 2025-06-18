@@ -13,27 +13,28 @@ export class UserService {
 
   editUser(editUser: User) {
     this.userSubject$.next(
-      this.userSubject$.value.map(user =>
+      this.userSubject$.value.map((user: User) =>
         user.id === editUser.id ? editUser : user
       )
     );
   }
 
   createUser(user: User) {
-  const userExisting = this.userSubject$.value.find(
-  (currentElement: User) => currentElement.email === user.email);
+    const userExisting: User | undefined = this.userSubject$.value.find(
+      (currentElement: User) => currentElement.email === user.email
+    );
 
-  if (userExisting !== undefined) {
-  alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
-  } else {
-  this.userSubject$.next([...this.userSubject$.value, user]);
-  alert('Новый пользователь добавлен');
+    if (userExisting !== undefined) {
+      alert('ТАКОЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН');
+    } else {
+      this.userSubject$.next([...this.userSubject$.value, user]);
+      alert('Новый пользователь добавлен');
+    }
   }
-}
 
   deleteUser(id: number) {
     this.userSubject$.next(
-      this.userSubject$.value.filter(user => user.id !== id)
+      this.userSubject$.value.filter((user: User) => user.id !== id)
     );
   }
 }

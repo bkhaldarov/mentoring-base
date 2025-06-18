@@ -62,25 +62,23 @@ export class HeaderComponent {
        width:"400px",
        height:"200px",
     });
-
-    dialogRef.afterClosed().subscribe((result:String) => {
-      console.log(result);
-
-      if(result === "admin"){
+    dialogRef.afterClosed().subscribe((result:string) => {
+      if (result === 'admin') {
         this.userService.loginAsAdmin();
-      }else if(result === "User") {
+      } else if (result === 'User') {
         this.userService.loginAsUser();
-      }else return undefined;
+      } else{ return undefined;
+      }
     })
   }
 
-  public logout() {
-    if(confirm('Вы точна хотите выйти?')){
-      console.log('da logout');
+  public logout(): boolean | void {
+    const confirmed = confirm('Вы точно хотите выйти?');
+    if (confirmed) {
       return this.userService.logOut();
+    } else {
+      return false;
     }
-    else return false;
-
   }
 }
 
