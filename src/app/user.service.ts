@@ -34,6 +34,5 @@ export class UserService {
 
   logOut(){
     this.userSubjects$.next(null);
-
   }
 }

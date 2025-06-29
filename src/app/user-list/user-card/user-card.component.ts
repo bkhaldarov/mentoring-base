@@ -1,7 +1,7 @@
 import { Component, Directive, EventEmitter, inject, Input, Output } from "@angular/core";
 import { User } from "../../models/user.model";
 import { MatDialog } from '@angular/material/dialog'
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { EditUserDialogComponent } from "../edit-user-dialog/edit-user-dialog.component";
 import { CustumUpperCasePipe } from "../../pipes/upper-case.pipe";
 import { CommonModule } from "@angular/common";
@@ -9,7 +9,7 @@ import { RemoveDashesPipe } from "../../pipes/removeDashes.pipe";
 import { ShortTextPipe } from "../../pipes/short-text.pipe";
 import { RedDirective } from "../../directives/red.directive";
 import { ShadowDirective } from "../../directives/shadow.directive";
-import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import { TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-user-card',
@@ -27,12 +27,12 @@ export class UserCardComponent {
   deleteUser = new EventEmitter<number>();
 
   @Output()
-  editUser = new EventEmitter()
+  editUser = new EventEmitter<User>();
 
   readonly dialog = inject(MatDialog);
 
 
-  openDialog(): void {
+ openDialog(): void {
     const dialogRef = this.dialog.open(EditUserDialogComponent, {
       data: {user: this.user},
     });

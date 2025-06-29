@@ -14,7 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 @Component({
   selector: 'edit-todo-dialog',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, MatDialogModule, MatIconModule, MatButtonModule, MatInputModule, FormsModule, MatFormFieldModule, MatDividerModule],
+  imports: [ReactiveFormsModule, MatDialogModule, MatIconModule, MatButtonModule, MatInputModule, FormsModule, MatFormFieldModule, MatDividerModule],
   templateUrl: './edit-todo-dialog.component.html',
   styleUrl: './edit-todo-dialog.component.scss',
   changeDetection:ChangeDetectionStrategy.OnPush
