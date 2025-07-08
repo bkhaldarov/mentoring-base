@@ -1,42 +1,34 @@
 import { createReducer, on } from '@ngrx/store';
 import { TodosActions } from '../store/todo.actions';
-import { Todo } from '../../models/todo.model';
+import { TodoState } from './todos.selectors'
 
 
-const initialState: { todos: Todo[] } = {
+const initialState: TodoState = {
   todos: [],
 };
 
 export const todoReducer = createReducer(
   initialState,
 
-  // Сохраняем массив пользователей
-  on(TodosActions.set, (state, payload) => ({
+  on(TodosActions.set, (state, {todos}) => ({
     ...state,
-    todos: payload.todos,
+    todos: todos,
   })),
 
-  // Редактируем пользователя
-  on(TodosActions.edit, (state, payload) => ({
+  on(TodosActions.edit, (state, {todo}) => ({
     ...state,
-    todos: state.todos.map((todo) => {
-      if (todo.id === payload.todo.id) {
-        return payload.todo;
-      } else {
-        return todo;
-      }
-    }),
+    todos: state.todos.map((t) =>
+      t.id === todo.id ? {...t,...todo}: t
+    ),
   })),
 
-  // Создаем нового пользователя
-  on(TodosActions.create, (state, payload) => ({
+  on(TodosActions.create, (state, {todo}) => ({
     ...state,
-    todos: [...state.todos, payload.todo],
+    todos: [...state.todos, todo],
   })),
 
-  // Удаляем пользователя
-  on(TodosActions.delete, (state, payload) => ({
+  on(TodosActions.delete, (state, {id}) => ({
     ...state,
-    todos: state.todos.filter((todo) => todo.id !== payload.id),
+    todos: state.todos.filter((todo) => todo.id !== id),
   }))
 );

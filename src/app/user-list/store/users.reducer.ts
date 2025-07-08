@@ -5,36 +5,32 @@ import { UsersActions } from './user.actions';
 
 const initialState: UserState  = {
   users: [],
-  counter:0,
-  error:null,
+  counter: 0,
+  error: null,
 };
 
 export const userReducer = createReducer(
   initialState,
-  on(UsersActions.set, (state, payload) => ({
+  on(UsersActions.set, (state, {users}) => ({
     ...state,
-    users: payload.users,
+    users: users,
   })),
 
-  on(UsersActions.edit, (state, payload) => ({
+  on(UsersActions.edit, (state, { user }) => ({
     ...state,
-    users: state.users.map((user) => {
-      if (user.id === payload.user.id) {
-        return payload.user;
-      } else {
-        return user;
-      }
-    }),
+    users: state.users.map((u) =>
+      u.id === user.id ? { ...u, ...user } : u
+    ),
   })),
 
-  on(UsersActions.create, (state, payload) => ({
+  on(UsersActions.create, (state, {user}) => ({
     ...state,
-    users: [...state.users, payload.user],
+    users: [...state.users, user],
   })),
 
-  on(UsersActions.delete, (state, payload) => ({
+  on(UsersActions.delete, (state, {id}) => ({
     ...state,
-    users: state.users.filter((user) => user.id !== payload.id),
+    users: state.users.filter(user => user.id !== id),
   })),
 
 on( UsersActions.initCounterByUsersLengthSuccess, (state, { users }) => ({

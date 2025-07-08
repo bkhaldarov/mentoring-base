@@ -15,7 +15,6 @@ export const usersLength$ = createEffect(() => {
     switchMap(() => usersApiService.getUsers()),
         map(users => UsersActions.initCounterByUsersLengthSuccess({ users })),
         catchError((error: HttpErrorResponse) => {
-          console.log('err:', error);
           return of(
             UsersActions.initCounterByUsersLengthFailure({
               error: error.error?.message ?? 'Произошла непредвиденная ошибка',

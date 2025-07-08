@@ -8,9 +8,6 @@ import { Store } from '@ngrx/store';
 import { UsersActions } from './store/user.actions';
 import { selectCountUsers, selectErrorMsg, selectUsers } from './store/users.selectors';
 
-
-
-
 @Component({
   selector: 'app-user-list',
   standalone: true,
@@ -20,8 +17,6 @@ import { selectCountUsers, selectErrorMsg, selectUsers } from './store/users.sel
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 
-
-
 export class UserListComponent {
   readonly usersApiService = inject(UsersApiService);
   private readonly store = inject(Store);
@@ -29,28 +24,15 @@ export class UserListComponent {
   public readonly usersCount$ = this.store.select(selectCountUsers);
   public readonly errorMessage$ = this.store.select(selectErrorMsg);
 
-  // constructor(){
-  //   this.usersApiService.getUsers().subscribe(
-  //     (response: User[]) => {
-  //       this.store.dispatch(UsersActions.set({users: response}));
-  //     });
-  // }
-
-
-
-
   onGetUserslengthBtnClick(): void {
     this.store.dispatch(UsersActions.initCounterByUsersLength());
   }
-  
-
   deleteUser(id: number) {
     this.store.dispatch(UsersActions.delete({id}));
   }
   editUser(user: User){
     this.store.dispatch(UsersActions.edit({user}));
   }
-
   createUser(formData: IcreateUser){
       this.store.dispatch(
         UsersActions.create({

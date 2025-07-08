@@ -4,12 +4,12 @@ import { User } from "../../models/user.model";
 
 export interface UserState{
   users: User[];
-  counter: number,
-  error: string | null,
+  counter: number;
+  error: string | null;
 }
 
 interface AppState{
-  users: UserState
+  users: UserState;
 }
 export const selectUsersFeature = (state: AppState) => state.users;
 
