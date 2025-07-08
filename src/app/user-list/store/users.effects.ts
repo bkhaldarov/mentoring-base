@@ -9,7 +9,6 @@ import { UsersActions } from './user.actions';
 export const usersLength$ = createEffect(() => {
   const actions$ = inject(Actions);
   const usersApiService = inject(UsersApiService);
-
   return actions$.pipe(
     ofType(UsersActions.initCounterByUsersLength),
     switchMap(() => usersApiService.getUsers()),

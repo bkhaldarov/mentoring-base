@@ -9,15 +9,6 @@ interface AppState{
   todos: TodoState
 }
 
-// export interface UserState{
-//   users: User[];
-//   counter: number;
-//   error: string | null;
-// }
-
-// interface AppState{
-//   users: UserState;
-// }
 export const selectTodosFeature = (state: AppState ) => state.todos;
 
 export const selectTodos = createSelector(
