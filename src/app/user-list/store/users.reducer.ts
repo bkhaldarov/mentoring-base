@@ -1,6 +1,8 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, State } from '@ngrx/store';
 import { UserState } from './users.selectors';
 import { UsersActions } from './user.actions';
+import { User } from '../../models/user.model';
+
 
 
 const initialState: UserState  = {
@@ -11,26 +13,26 @@ const initialState: UserState  = {
 
 export const userReducer = createReducer(
   initialState,
-  on(UsersActions.set, (state, {users}) => ({
+  on(UsersActions.set, (state, { users }) => ({
     ...state,
     users: users,
   })),
 
   on(UsersActions.edit, (state, { user }) => ({
     ...state,
-    users: state.users.map((u) =>
+    users: state.users.map((u: User) =>
       u.id === user.id ? { ...u, ...user } : u
     ),
   })),
 
-  on(UsersActions.create, (state, {user}) => ({
+  on(UsersActions.create, (state, { user }) => ({
     ...state,
     users: [...state.users, user],
   })),
 
-  on(UsersActions.delete, (state, {id}) => ({
+  on(UsersActions.delete, (state, { id }) => ({
     ...state,
-    users: state.users.filter(user => user.id !== id),
+    users: state.users.filter(( user: User )=> user.id !== id),
   })),
 
 on( UsersActions.initCounterByUsersLengthSuccess, (state, { users }) => ({
